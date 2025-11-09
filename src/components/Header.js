@@ -7,7 +7,7 @@ export default function Header() {
       <div className="container header-inner">
         <a className="brand" href="/">
           <img
-            src="/WhatsApp Image 2025-11-09 at 10.12.03 PM.jpeg"
+            src={process.env.PUBLIC_URL + "/WhatsApp Image 2025-11-09 at 10.12.03 PM.jpeg"}
             alt="Trainology logo"
             className="brand-logo"
           />
