@@ -1,0 +1,72 @@
+.site-header{
+  background: #000;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  width: 100%;
+}
+.header-inner{
+  display:flex;
+  align-items:flex-start; /* move logo towards the top */
+  justify-content:space-between;
+  padding:8px 24px; /* reduce vertical padding so logo sits higher */
+  height:72px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.brand-logo{
+  width:56px;
+  height:auto;
+  display:block;
+}
+.brand-text{
+  display:none; /* hide text label to prevent overlap with hero headline */
+}
+.main-nav a {
+  color: #fff;
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.main-nav a:hover, .main-nav a:focus {
+  background: #f1c40f22;
+  color: #f1c40f;
+  box-shadow: 0 4px 16px rgba(241,196,15,0.12);
+  text-decoration: underline;
+}
+.contact-btn {
+  background: #f1c40f;
+  color: #222 !important;
+  padding: 12px 28px;
+  border-radius: 8px;
+  margin-left: 32px;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 6px;
+  box-shadow: 0 2px 8px rgba(241,196,15,0.12);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.contact-btn:hover, .contact-btn:focus {
+  background: #fff;
+  color: #f1c40f !important;
+  box-shadow: 0 4px 16px rgba(241,196,15,0.18);
+}

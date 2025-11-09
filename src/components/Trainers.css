@@ -1,0 +1,6 @@
+.trainers{padding:48px 0}
+.trainer-grid{display:flex;gap:16px}
+.trainer{flex:1;background:#111;color:#fff;padding:16px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.trainer img{width:100%;height:220px;object-fit:cover;border-radius:6px}
+.trainer h4{margin:10px 0 4px}
+.view-profile{display:inline-block;margin-top:8px;color:#e63946;text-decoration:none}

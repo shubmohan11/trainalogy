@@ -1,0 +1,6 @@
+.pricing{padding:48px 0}
+.pricing-grid{display:flex;gap:16px}
+.plan{flex:1;background:#111;color:#fff;padding:18px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.plan h3{margin:0 0 8px}
+.sessions{color:#666;margin:0 0 12px}
+.btn-join{background:#1d3557;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
