@@ -4,7 +4,7 @@ import './Trainers.css';
 const trainers = [
   {name:'ABDELRAHMAN', exp:'8 years', img:process.env.PUBLIC_URL + '/Gemini_Generated_Image_r8a5bjr8a5bjr8a5.png'},
   {name:'FAYEZ KAFY', exp:'8 years', img:process.env.PUBLIC_URL + '/Gemini_Generated_Image_aat34iaat34iaat3.png'},
-  {name:'MOEMEN', exp:'6 years', img:process.env.PUBLIC_URL + '/Gemini_Generated_Image_aat34iaat34iaat3.png'}
+  {name:'MOEMEN', exp:'6 years', img:process.env.PUBLIC_URL + '/Gemini_Generated_Image_r8a5bjr8a5bjr8a5.png'}
 ];
 
 export default function Trainers(){

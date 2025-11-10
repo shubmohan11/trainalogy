@@ -1,26 +1,98 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 
+const navItems = [
+  { label: 'Home', hash: '#programs' },
+  { label: 'Get to know us', hash: '#get-to-know' },
+  { label: 'Our Coaches', hash: '#trainers' },
+  { label: 'Personal Training', hash: '#programs' },
+  { label: 'Pricing', hash: '#pricing' },
+  { label: 'Blogs', hash: '#blog' },
+  { label: 'Contact Us', hash: '#contact' }
+];
+
 export default function Header() {
+  const [active, setActive] = useState(window.location.hash || navItems[0].hash);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    function onHash() {
+      setActive(window.location.hash || navItems[0].hash);
+      setMenuOpen(false);
+    }
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  // Close menu on resize to desktop
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header className="site-header">
       <div className="container header-inner">
         <a className="brand" href="/">
           <img
-            src={process.env.PUBLIC_URL + "/WhatsApp Image 2025-11-09 at 10.12.03 PM.jpeg"}
-            alt="Trainology logo"
+            src={process.env.PUBLIC_URL + '/logo.jpg'}
+            alt="Trainalogy logo"
             className="brand-logo"
           />
-          <span className="brand-text">Trainology</span>
         </a>
+
         <nav className="main-nav">
-          <a href="#programs">Programs</a>
-          <a href="#trainers">Trainers</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#gallery">Gallery</a>
-          <a className="contact-btn" href="/contact-us/">Contact</a>
+          {navItems.map((item) => (
+            <a
+              key={item.hash + item.label}
+              href={item.hash}
+              className={active === item.hash ? 'active' : ''}
+              onClick={() => setActive(item.hash)}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
+
+  <a className="join-btn desktop-join" href="/contact-us/">JOIN NOW</a>
+
+        {/* Hamburger icon for mobile/tablet */}
+        <button
+          className="menu-toggle"
+          aria-label="Open menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="menu-icon">&#9776;</span>
+        </button>
       </div>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="mobile-nav-overlay" onClick={() => setMenuOpen(false)}>
+          <div className="mobile-nav" onClick={e => e.stopPropagation()}>
+            <button className="close-menu" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+              &times;
+            </button>
+            {navItems.map((item) => (
+              <a
+                key={item.hash + item.label}
+                href={item.hash}
+                className={active === item.hash ? 'active' : ''}
+                onClick={() => {
+                  setActive(item.hash);
+                  setMenuOpen(false);
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a className="join-btn" href="/contact-us/">JOIN NOW</a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

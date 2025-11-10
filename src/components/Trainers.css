@@ -85,6 +85,21 @@
 }
 
 @media (max-width:600px){
+  .trainer-grid {
+    align-items: center;
+  }
+}
+
+@media (max-width:600px){
 	.trainer img{height:300px}
 	.trainer h4{font-size:28px}
+}
+
+@media (max-width:400px){
+	.trainer h4 {
+		font-size: 18px;
+	}
+	.trainer p {
+		font-size: 14px;
+	}
 }

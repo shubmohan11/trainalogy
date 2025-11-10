@@ -10,12 +10,13 @@
 }
 .header-inner{
   display:flex;
-  align-items:flex-start; /* move logo towards the top */
+  align-items:center;
   justify-content:space-between;
-  padding:8px 24px; /* reduce vertical padding so logo sits higher */
-  height:72px;
+  padding:12px 28px;
+  height:80px;
   max-width:1200px;
   margin:0 auto;
+  position:relative;
 }
 .brand{
   display:flex;
@@ -24,49 +25,157 @@
   text-decoration:none;
 }
 .brand-logo{
-  width:56px;
+  width:72px;
   height:auto;
   display:block;
 }
 .brand-text{
   display:none; /* hide text label to prevent overlap with hero headline */
 }
-.main-nav a {
-  color: #fff;
-  margin-left: 32px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  margin-top: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  letter-spacing: 0.5px;
+.main-nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+}
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:8px 10px;
+  text-transform:uppercase;
+}
+.main-nav a:hover, .main-nav a:focus{
+  color:var(--accent, #f1c40f);
+}
+
+/* active tab styling: yellow text and small underline for strong emphasis */
+.main-nav a.active{
+  color:var(--accent, #f1c40f);
+  position:relative;
+  font-weight:900;
+}
+.main-nav a.active::after{
+  content: '';
+  display:block;
+  height:4px;
+  width:40%;
+  background:var(--accent, #f1c40f);
+  margin:6px auto 0;
+  border-radius:2px;
+}
+.contact-btn {
+  /* legacy: not used */
+}
+
+.join-btn{
+  display:inline-block;
+  padding:12px 28px;
+  border-radius:6px;
+  border:2px solid var(--accent, #f1c40f);
+  background:transparent;
+  color:#fff;
+  font-weight:800;
+  letter-spacing:1px;
+  text-decoration:none;
+}
+.join-btn{min-width:140px;text-align:center}
+.join-btn:hover{background:var(--accent, #f1c40f); color:#000}
+
+/* small screens: collapse nav spacing */
+@media (max-width:900px){
+  .main-nav{display:none}
+  .brand-logo{width:56px}
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #f1c40f;
+  font-size: 2.2em;
+  cursor: pointer;
+  margin-left: 12px;
+  z-index: 100;
+}
+.menu-icon {
   display: inline-block;
 }
 
-.main-nav a:hover, .main-nav a:focus {
-  background: #f1c40f22;
-  color: #f1c40f;
-  box-shadow: 0 4px 16px rgba(241,196,15,0.12);
-  text-decoration: underline;
+@media (max-width:900px){
+  .menu-toggle {
+    display: block;
+  }
 }
-.contact-btn {
-  background: #f1c40f;
-  color: #222 !important;
-  padding: 12px 28px;
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  z-index: 99;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.mobile-nav {
+  background: #111;
+  color: #fff;
+  margin-top: 24px;
   border-radius: 8px;
-  margin-left: 32px;
-  border: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-top: 6px;
-  box-shadow: 0 2px 8px rgba(241,196,15,0.12);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  padding: 24px 0 16px 0;
+  min-width: 80vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
 }
-.contact-btn:hover, .contact-btn:focus {
-  background: #fff;
-  color: #f1c40f !important;
-  box-shadow: 0 4px 16px rgba(241,196,15,0.18);
+.mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 16px 32px;
+  border-bottom: 1px solid #222;
+  text-align: left;
+}
+.mobile-nav a.active {
+  background: #222;
+  color: #f1c40f;
+}
+.mobile-nav .join-btn {
+  margin: 18px 32px 0 32px;
+  padding: 12px 0;
+  text-align: center;
+}
+.close-menu {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: #f1c40f;
+  color: #fff;
+  border: none;
+  font-size: 2em;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+@media (max-width:600px){
+  .header-inner {
+    padding: 8px 12px;
+    height: 56px;
+  }
+  .brand-logo {
+    width: 40px;
+  }
 }

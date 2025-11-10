@@ -1,6 +1,104 @@
-.pricing{padding:48px 0}
-.pricing-grid{display:flex;gap:16px}
-.plan{flex:1;background:#111;color:#fff;padding:18px;border-radius:8px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
-.plan h3{margin:0 0 8px}
-.sessions{color:#666;margin:0 0 12px}
-.btn-join{background:#1d3557;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
+.pricing{padding:64px 0}
+.pricing-header{ text-align:center; margin-bottom:36px }
+.pricing-header .subtitle{ color:#f1c40f; font-weight:700; letter-spacing:1px; margin-bottom:10px }
+.section-title{ display:flex; justify-content:center }
+.section-title span{ background:#f1c40f; color:#000; padding:12px 36px; font-size:44px; font-weight:900; letter-spacing:2px; display:inline-block }
+.pricing-grid{display:flex;gap:28px;align-items:flex-start}
+.plan{flex:1;background:transparent;color:#fff;padding:22px;border-radius:6px;text-align:center;border:2px solid #2b2b2b;display:flex;flex-direction:column;justify-content:space-between;min-height:220px}
+.plan .plan-top{padding:18px}
+.indicator{display:flex;gap:8px;justify-content:center;margin-bottom:14px}
+.dot{width:14px;height:14px;border-radius:3px;display:inline-block}
+.dot.green{background:#2ee86f}
+.dot.gray{background:#444}
+.plan h3{margin:6px 0 8px;font-size:28px;font-weight:800}
+.sessions{color:#f1c40f;margin:0 0 16px;font-weight:700}
+.plan-bottom{padding:8px}
+.btn-join{display:inline-block;margin:0 auto;color:#fff;text-decoration:none;padding:10px 20px;border-radius:6px;border:2px solid #f1c40f;background:transparent;font-weight:700}
+.plan.active{background:#3a3a3a;border-color:#666}
+
+@media (max-width:900px){
+	.pricing-grid{flex-direction:column}
+	.section-title span{font-size:36px;padding:10px 24px}
+}
+
+@media (max-width:600px){
+	.pricing {
+		padding: 24px 0;
+	}
+	.plan h3 {
+		font-size: 18px;
+	}
+	.plan {
+		padding: 10px;
+		min-height: 120px;
+	}
+	.section-title span {
+		font-size: 20px;
+		padding: 6px 10px;
+	}
+	.pricing-header {
+		text-align: center;
+		margin-bottom: 18px;
+	}
+	.pricing-header .subtitle {
+		color: #f1c40f;
+		font-size: 1.1em;
+		margin-bottom: 8px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		display: block;
+	}
+	.pricing-header h2 {
+		font-size: 2em;
+		font-weight: 800;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	.pricing-grid {
+		 gap: 18px;
+		 display: flex;
+		 flex-direction: column;
+		 align-items: center;
+	}
+	.plan {
+		border: 2px solid #fff;
+		border-radius: 4px;
+		margin-bottom: 0;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+		text-align: center;
+		 width: 90vw;
+		 max-width: 340px;
+		 background: #111;
+		 margin-bottom: 18px;
+	}
+	.plan .plan-top {
+		padding: 10px 0 0 0;
+	}
+	.indicator {
+		justify-content: center;
+		margin-bottom: 8px;
+	}
+	.plan h3 {
+		font-size: 1.4em;
+		font-weight: 800;
+		margin: 8px 0 4px 0;
+	}
+	.sessions {
+		font-size: 1em;
+		margin-bottom: 8px;
+	}
+	.btn-join {
+		width: 100%;
+		margin: 10px 0 0 0;
+		font-size: 1em;
+		font-weight: 700;
+		border: 2px solid #f1c40f;
+		border-radius: 2px;
+		background: transparent;
+		color: #fff;
+		padding: 10px 0;
+		text-align: center;
+		letter-spacing: 1px;
+	}
+}
