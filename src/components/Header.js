@@ -50,14 +50,18 @@ export default function Header() {
               key={item.hash + item.label}
               href={item.hash}
               className={active === item.hash ? 'active' : ''}
-              onClick={() => setActive(item.hash)}
+              onClick={e => {
+                e.preventDefault();
+                window.location.href = '/' + item.hash;
+                setActive(item.hash);
+              }}
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-  <a className="join-btn desktop-join" href="/contact-us/">JOIN NOW</a>
+  <a className="join-btn desktop-join" href="/contact">JOIN NOW</a>
 
         {/* Hamburger icon for mobile/tablet */}
         <button
@@ -81,7 +85,9 @@ export default function Header() {
                 key={item.hash + item.label}
                 href={item.hash}
                 className={active === item.hash ? 'active' : ''}
-                onClick={() => {
+                onClick={e => {
+                  e.preventDefault();
+                  window.location.href = '/' + item.hash;
                   setActive(item.hash);
                   setMenuOpen(false);
                 }}
@@ -89,7 +95,7 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <a className="join-btn" href="/contact-us/">JOIN NOW</a>
+            <a className="join-btn" href="/contact">JOIN NOW</a>
           </div>
         </div>
       )}

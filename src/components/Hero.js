@@ -13,7 +13,7 @@ export default function Hero(){
         <div className="hero-copy">
           <h1>Trainology<br/>PERSONAL TRAINER</h1>
           <p>Looking for the best personal trainers in Dubai? Our certified fitness coaches offer customized training plans to help you achieve real results.</p>
-          <a className="btn-primary" href="/contact-us/">LET'S TRAIN</a>
+          <a className="btn-primary" href="/contact">LET'S TRAIN</a>
         </div>
       </div>
     </section>
