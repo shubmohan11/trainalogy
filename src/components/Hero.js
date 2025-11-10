@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import heroImage from '../Gemini_Generated_Image_vdcsguvdcsguvdcs.png';
 
 export default function Hero(){
   return (
@@ -11,7 +12,7 @@ export default function Hero(){
           <a className="btn-primary" href="/contact-us/">LET'S TRAIN</a>
         </div>
         <div className="hero-image">
-          <img src={process.env.PUBLIC_URL + "/Gemini_Generated_Image_vdcsguvdcsguvdcs.png"} alt="Trainology fitness trainers"/>
+          <img src={heroImage} alt="Trainology fitness trainers"/>
         </div>
       </div>
     </section>
