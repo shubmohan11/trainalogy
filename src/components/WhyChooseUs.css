@@ -54,6 +54,7 @@
 @media (max-width: 600px){
   .why {
     padding: 40px 0;
+    overflow-x: hidden;
   }
   .why-title {
     font-size: 28px;
@@ -61,9 +62,15 @@
   }
   .why-inner {
     gap: 16px;
+    overflow: hidden;
   }
   .why-media-frame {
     max-width: 100%;
+  }
+  .why-media-frame::after {
+    left: -8px;
+    top: -8px;
+    border-width: 4px;
   }
   .why-copy {
     padding: 0 8px;
