@@ -33,6 +33,19 @@
 	color: #f1c40f;
 	font-size: 1em;
 	margin-bottom: 8px;
+	line-height: 1.8;
+}
+.footer-contact a {
+	color: #f1c40f;
+	text-decoration: none;
+	transition: color 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+.footer-contact a:hover {
+	color: #fff;
+	text-decoration: underline;
 }
 .footer-links h5,
 .footer-schedule h5,
@@ -115,11 +128,24 @@
 	display: flex;
 	gap: 18px;
 	margin-top: 10px;
+	flex-wrap: wrap;
 }
 .footer-social a {
 	color: #f1c40f;
-	font-size: 1.5em;
+	font-size: 1em;
 	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	transition: color 0.3s ease;
+}
+.footer-social a:hover {
+	color: #fff;
+}
+.footer-social svg {
+	width: 20px;
+	height: 20px;
+	fill: currentColor;
 }
 .copyright {
 	margin-top: 28px;

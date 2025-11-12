@@ -68,6 +68,35 @@
 	background:transparent;
 	font-weight:700;
 	letter-spacing:1px;
+	cursor:pointer;
+	transition:all 0.3s ease;
+}
+
+.view-profile:hover{
+	background:#f1c40f;
+	color:#000;
+}
+
+.trainer-profile{
+	background:rgba(241,196,15,0.1);
+	border-left:3px solid #f1c40f;
+	padding:16px;
+	margin:16px 0;
+	text-align:left;
+	border-radius:4px;
+}
+
+.trainer-specialties{
+	margin:0 0 12px 0;
+	color:#f1c40f;
+	font-size:14px;
+}
+
+.trainer-description{
+	margin:0;
+	color:#ddd;
+	font-size:14px;
+	line-height:1.6;
 }
 
 /* Make each trainer card have a subtle framed column look */

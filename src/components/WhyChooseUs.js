@@ -1,8 +1,55 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './WhyChooseUs.css';
 
-export default function WhyChooseUs(){
+export default function WhyChooseUs() {
   const image = process.env.PUBLIC_URL + '/gallery/Gemini_Generated_Image_aat34iaat34iaat3.png';
+
+  function useCounterAnimation(target, duration = 1200) {
+    const [count, setCount] = useState(0);
+    const ref = useRef();
+    
+    useEffect(() => {
+      const animate = () => {
+        let start = 0;
+        const end = parseInt(target);
+        if (start === end) return;
+        let incrementTime = Math.floor(duration / end);
+        
+        const timer = setInterval(() => {
+          start += 1;
+          setCount(start);
+          if (start === end) {
+            clearInterval(timer);
+          }
+        }, incrementTime);
+        
+        return timer;
+      };
+      
+      // Initial animation
+      const initialTimer = animate();
+      
+      // Repeat animation every 10 seconds
+      const repeatInterval = setInterval(() => {
+        setCount(0); // Reset to 0
+        setTimeout(() => {
+          animate();
+        }, 100); // Small delay before restarting
+      }, 10000);
+      
+      return () => {
+        clearInterval(initialTimer);
+        clearInterval(repeatInterval);
+      };
+    }, [target, duration]);
+    
+    return count;
+  }
+
+  const trainingPrograms = useCounterAnimation(10);
+  const expertTrainer = useCounterAnimation(10);
+  const happyClients = useCounterAnimation(650, 1800);
+
   return (
     <section className="why container" id="why-choose-us">
       <div className="why-inner">
@@ -21,18 +68,24 @@ export default function WhyChooseUs(){
 
       <div className="why-stats">
         <div className="stat">
-          <div className="stat-value">10</div>
+          <div className="stat-value">
+            <span key={trainingPrograms} className="stat-value-inner">{trainingPrograms}</span>
+          </div>
           <div className="stat-label">Training Programs</div>
         </div>
         <div className="stat">
-          <div className="stat-value">10</div>
+          <div className="stat-value">
+            <span key={expertTrainer} className="stat-value-inner">{expertTrainer}</span>
+          </div>
           <div className="stat-label">Expert Trainer</div>
         </div>
         <div className="stat">
-          <div className="stat-value">650</div>
+          <div className="stat-value">
+            <span key={happyClients} className="stat-value-inner">{happyClients}</span>
+          </div>
           <div className="stat-label">Happy Clients</div>
         </div>
       </div>
     </section>
-  )
+  );
 }

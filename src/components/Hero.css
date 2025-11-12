@@ -1,57 +1,89 @@
 .hero{
   position: relative;
-  /* make left side lighter so dark text placed over image is readable */
-  background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25));
-  color:inherit;
-  padding:0;
-  height:720px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  color: #fff;
+  padding: 0;
+  height: 720px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hero-inner{
-  /* allow the section (.hero) to remain the positioning context so the image can be full-bleed
-     and the copy can overlay properly */
-  height:100%;
-  padding-top:0;
+  height: 100%;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 .hero-copy{
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 600px;
-  z-index: 2;
+  text-align: center;
+  max-width: 900px;
   padding: 20px;
-  color: #000; /* make all copy dark for readability */
+  color: #fff;
+}
+.hero-badge{
+  display: inline-block;
+  background: rgba(50, 50, 50, 0.8);
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+}
+.badge-text{
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+.badge-brand{
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: #f1c40f;
+  letter-spacing: 2px;
 }
 .hero-copy h1{
-  font-size:64px;
-  margin:0 0 18px 0;
-  line-height:0.95;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  /* ensure consistent vertical rhythm when the container is centered */
-  color: #000;
+  font-size: 72px;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
-.hero-copy p{
-  max-width:520px;
-  margin:0;
-  color: #222;
+.hero-subtitle{
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 36px;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1.4;
 }
-.btn-primary{
-  display:inline-block;
-  background:#000;
-  color:#fff;
-  padding:12px 18px;
-  border-radius:6px;
-  text-decoration:none;
-  margin-top:18px;
-  border:2px solid #f1c40f;
-  font-weight:700;
-  transition:background 0.2s, color 0.2s;
-}
-.btn-primary:hover {
+.btn-hero{
+  display: inline-block;
   background: #f1c40f;
   color: #000;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: none;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+}
+.btn-hero:hover {
+  background: #f39c12;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(241, 196, 15, 0.6);
 }
 .hero-image{ 
   width: 100%;
@@ -66,23 +98,26 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(1.2);
+  filter: brightness(0.7);
 }
 
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
 @media (max-width: 900px) {
   .hero {
-    height: 420px;
+    height: 520px;
   }
   .hero-copy h1 {
-    font-size: 36px;
+    font-size: 48px;
+  }
+  .hero-subtitle {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 600px) {
   .hero {
-    height: 260px;
+    height: 480px;
     padding: 0;
     margin-top: 56px;
   }
@@ -91,10 +126,22 @@
     padding: 8px;
   }
   .hero-copy h1 {
-    font-size: 22px;
+    font-size: 32px;
+    letter-spacing: 1px;
   }
-  .btn-primary {
-    padding: 8px 12px;
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .hero-badge {
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+  .badge-brand {
+    font-size: 16px;
+  }
+  .btn-hero {
+    padding: 14px 28px;
     font-size: 14px;
   }
 }

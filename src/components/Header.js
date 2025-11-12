@@ -38,7 +38,7 @@ export default function Header() {
       <div className="container header-inner">
         <a className="brand" href="/">
           <img
-            src={process.env.PUBLIC_URL + '/logo.jpg'}
+            src={process.env.PUBLIC_URL + '/WhatsApp_Image_2025-11-09_at_10.11.55_PM-removebg-preview.png'}
             alt="Trainalogy logo"
             className="brand-logo"
           />
@@ -100,72 +100,75 @@ export default function Header() {
 
         {/* Hamburger icon for mobile/tablet */}
         <button
-          className="menu-toggle"
-          aria-label="Open menu"
+          className={"menu-toggle" + (menuOpen ? " open" : "")}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="menu-icon">&#9776;</span>
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
         </button>
       </div>
-
-      {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <div className="mobile-nav-overlay" onClick={() => setMenuOpen(false)}>
-          <div className="mobile-nav" onClick={e => e.stopPropagation()}>
-            <button className="close-menu" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-              &times;
-            </button>
-            {navItems.map((item) => (
-              <a
-                key={item.hash + item.label}
-                href={item.hash}
-                className={active === item.hash ? 'active' : ''}
-                onClick={e => {
-                  e.preventDefault();
-                  if (item.hash === '#contact') {
-                    window.location.hash = '#/contact';
-                    setActive(item.hash);
-                    setMenuOpen(false);
-                    if (window.location.hash === '#/contact') {
-                      window.location.reload();
-                    }
-                  } else {
-                    window.location.hash = item.hash;
-                    setActive(item.hash);
-                    setMenuOpen(false);
-                    setTimeout(() => {
-                      const sectionId = item.hash.replace('#', '');
-                      const section = document.getElementById(sectionId);
-                      if (section) {
-                        section.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }, 100);
-                  }
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+      {/* Mobile dropdown menu (always in DOM for smooth animation) */}
+      <div className={"mobile-nav-overlay" + (menuOpen ? " open" : "")} onClick={() => setMenuOpen(false)}>
+        <div id="mobile-nav" className="mobile-nav" onClick={e => e.stopPropagation()}>
+          <button className="close-menu" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+            &times;
+          </button>
+          {navItems.map((item) => (
             <a
-              className="join-btn"
-              href="#contact"
+              key={item.hash + item.label}
+              href={item.hash}
+              className={active === item.hash ? 'active' : ''}
               onClick={e => {
                 e.preventDefault();
-                window.location.hash = '#contact';
-                setMenuOpen(false);
-                setTimeout(() => {
-                  const section = document.getElementById('contact');
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
+                if (item.hash === '#contact') {
+                  window.location.hash = '#contact';
+                  setActive(item.hash);
+                  setMenuOpen(false);
+                  setTimeout(() => {
+                    const section = document.getElementById('contact');
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                } else {
+                  window.location.hash = item.hash;
+                  setActive(item.hash);
+                  setMenuOpen(false);
+                  setTimeout(() => {
+                    const sectionId = item.hash.replace('#', '');
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }
               }}
             >
-              JOIN NOW
+              {item.label}
             </a>
-          </div>
+          ))}
+          <button
+            className="join-btn"
+            onClick={e => {
+              e.preventDefault();
+              window.location.hash = '#contact';
+              setMenuOpen(false);
+              setTimeout(() => {
+                const section = document.getElementById('contact');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            }}
+          >
+            JOIN NOW
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 }

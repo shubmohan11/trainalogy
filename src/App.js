@@ -12,6 +12,7 @@ import Pricing from './components/Pricing';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
+import WhatsAppButton from './components/WhatsAppButton';
 
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -48,6 +49,7 @@ function App() {
           <section id="contact"><ContactForm /></section>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     );
 }

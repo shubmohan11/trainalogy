@@ -20,7 +20,26 @@
 .who-icon svg{display:block}
 .who-item-copy h4{margin:0 0 8px 0;font-size:18px;text-transform:uppercase;font-weight:800;color:#fff}
 .who-item-copy p{margin:0;color:#bdbdbd;font-size:16px;line-height:1.8}
-.who-cta{display:inline-block;margin-top:18px;padding:12px 28px;border:2px solid #f1c40f;color:#fff;text-decoration:none;border-radius:4px;background:#000}
+.who-cta{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 28px;
+  border:2px solid #f1c40f;
+  color:#fff;
+  text-decoration:none;
+  border-radius:4px;
+  background:#000;
+  cursor:pointer;
+  font-weight:700;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  transition:all 0.3s ease;
+}
+.who-cta:hover{
+  background:#f1c40f;
+  color:#000;
+}
 
 .who-media{display:flex;flex-direction:column;justify-content:center;align-items:center}
 .who-media-frame{position:relative;width:100%;max-width:420px}

@@ -4,6 +4,13 @@ import './Hero.css';
 const heroImage = process.env.PUBLIC_URL + '/Gemini_Generated_Image_vdcsguvdcsguvdcs.png';
 
 export default function Hero(){
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-image">
@@ -11,24 +18,15 @@ export default function Hero(){
       </div>
       <div className="hero-inner container">
         <div className="hero-copy">
-          <h1>Trainology<br/>PERSONAL TRAINER</h1>
-          <p>Looking for the best personal trainers in Dubai? Our certified fitness coaches offer customized training plans to help you achieve real results.</p>
-          <a
-            className="btn-primary"
-            href="#contact"
-            onClick={e => {
-              e.preventDefault();
-              window.location.hash = '#contact';
-              setTimeout(() => {
-                const section = document.getElementById('contact');
-                if (section) {
-                  section.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 100);
-            }}
-          >
-            LET'S TRAIN
-          </a>
+          <div className="hero-badge">
+            <span className="badge-text">Powered by</span>
+            <span className="badge-brand">TRAINOLOGY</span>
+          </div>
+          <h1>THE WORLD'S #1<br/>BODY TRANSFORMATION PROGRAM</h1>
+          <p className="hero-subtitle">For Executives, High-Achievers & Those Who Demand the Best.</p>
+          <button className="btn-hero" onClick={scrollToContact}>
+            START MY TRANSFORMATION
+          </button>
         </div>
       </div>
     </section>

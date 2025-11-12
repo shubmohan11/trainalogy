@@ -9,6 +9,13 @@ const plans = [
 ];
 
 export default function Pricing(){
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section id="pricing" className="pricing container">
       <div className="pricing-header">
@@ -31,7 +38,7 @@ export default function Pricing(){
                 <p className="sessions">{p.sessions}</p>
               </div>
               <div className="plan-bottom">
-                <a className="btn-join" href="/pricing-2-2/">JOIN NOW</a>
+                <button className="btn-join" onClick={scrollToContact}>JOIN NOW</button>
               </div>
             </div>
           )

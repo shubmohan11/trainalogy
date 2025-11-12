@@ -19,7 +19,30 @@
 
 .why-stats{display:flex;gap:48px;justify-content:center;margin-top:64px}
 .stat{text-align:center}
-.stat-value{font-size:56px;font-weight:800;color:#fff}
+.stat-value{
+  font-size:56px;
+  font-weight:800;
+  color:#fff;
+  overflow:visible;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.stat-value-inner{
+  animation: slideUp 0.6s ease-out;
+  display: inline-block;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .stat-label{color:#bfbfbf;margin-top:8px}
 
 @media (max-width: 1000px){

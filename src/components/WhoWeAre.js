@@ -32,6 +32,14 @@ function FeatureIcon({index}){
 
 export default function WhoWeAre(){
   const image = process.env.PUBLIC_URL + '/gallery/Gemini_Generated_Image_r8a5bjr8a5bjr8a5.png';
+  
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="who container" id="who-we-are">
       <div className="who-inner">
@@ -59,7 +67,7 @@ export default function WhoWeAre(){
           <div className="who-media-frame">
             <img src={image} alt="who we are" />
           </div>
-          <a className="who-cta" href="/contact-us/">FREE CONSULTATION</a>
+          <button className="who-cta" onClick={scrollToContact}>FREE CONSULTATION</button>
         </div>
       </div>
     </section>
