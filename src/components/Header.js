@@ -105,10 +105,19 @@ export default function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((open) => !open)}
+          style={{
+            position: 'relative',
+            zIndex: 10001,
+            WebkitAppearance: 'none',
+            appearance: 'none',
+            WebkitTransform: 'translateZ(0)',
+            transform: 'translateZ(0)',
+            display: window.innerWidth <= 900 ? 'flex' : 'none'
+          }}
         >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
+          <span className="bar" style={{ pointerEvents: 'none' }} />
+          <span className="bar" style={{ pointerEvents: 'none' }} />
+          <span className="bar" style={{ pointerEvents: 'none' }} />
         </button>
       </div>
       {/* Mobile dropdown menu (always in DOM for smooth animation) */}
