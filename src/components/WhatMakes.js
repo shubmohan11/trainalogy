@@ -3,19 +3,19 @@ import './WhatMakes.css';
 
 const features = [
   {
-    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_1y8f2t1y8f2t1y8f.png',
+    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_298rzw298rzw298r.png',
     title: 'THE RIGHT INTENSITY -',
     subtitle: 'SO YOU NEVER FEEL BURNED OUT',
     description: 'Not too hard, not too easy—just the right intensity to see powerful results. This is custom fitness at the highest level.'
   },
   {
-    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_6avhw36avhw36avh.png',
+    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_ywlgt5ywlgt5ywlg.png',
     title: '100% PTD-TRAINED EXPERTS',
     subtitle: '(NO RANDOM FREELANCE TRAINERS)',
     description: 'Every coach is hand-selected, PTD-certified, and trained in the PTD Elite Coaching Model™—ensuring the same world-class standard across all PTD programs.'
   },
   {
-    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_9be2uh9be2uh9be2.png',
+    img: process.env.PUBLIC_URL + '/Gemini_Generated_Image_54jb5354jb5354jb.png',
     title: 'OPTIMIZED FOR YOUR',
     subtitle: 'AGE, LIFESTYLE & GOALS',
     description: 'We specialize in men & women 40+ who want strength, longevity & an optimized physique—without risky, ineffective methods.'

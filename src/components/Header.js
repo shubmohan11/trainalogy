@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Header.css';
+import MobileMenuPortal from './MobileMenuPortal';
 
 const navItems = [
   { label: 'Home', hash: '#home' },
@@ -98,77 +99,79 @@ export default function Header() {
           JOIN NOW
         </a>
 
-        {/* Hamburger icon for mobile/tablet */}
+        {/* Floating hamburger for mobile/tablet (fixed, outside stacking contexts) */}
         <button
-          className={"menu-toggle" + (menuOpen ? " open" : "")}
+          className={"floating-menu-toggle" + (menuOpen ? " open" : "")}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
+          aria-controls="mobile-drawer"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
+          <span className="line" />
+          <span className="line" />
+          <span className="line" />
         </button>
       </div>
-      {/* Mobile dropdown menu (always in DOM for smooth animation) */}
-      <div className={"mobile-nav-overlay" + (menuOpen ? " open" : "")} onClick={() => setMenuOpen(false)}>
-        <div id="mobile-nav" className="mobile-nav" onClick={e => e.stopPropagation()}>
-          <button className="close-menu" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
-            &times;
-          </button>
-          {navItems.map((item) => (
-            <a
-              key={item.hash + item.label}
-              href={item.hash}
-              className={active === item.hash ? 'active' : ''}
+      {/* Mobile menu rendered via portal to <body> for iOS reliability */}
+      <MobileMenuPortal open={menuOpen}>
+        <div className={"mobile-portal-overlay" + (menuOpen ? " open" : "")} onClick={() => setMenuOpen(false)}>
+          <nav id="mobile-drawer" className="mobile-drawer" onClick={e => e.stopPropagation()}>
+            <button className="drawer-close" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+              &times;
+            </button>
+            {navItems.map((item) => (
+              <a
+                key={item.hash + item.label}
+                href={item.hash}
+                className={active === item.hash ? 'active' : ''}
+                onClick={e => {
+                  e.preventDefault();
+                  if (item.hash === '#contact') {
+                    window.location.hash = '#contact';
+                    setActive(item.hash);
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      const section = document.getElementById('contact');
+                      if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  } else {
+                    window.location.hash = item.hash;
+                    setActive(item.hash);
+                    setMenuOpen(false);
+                    setTimeout(() => {
+                      const sectionId = item.hash.replace('#', '');
+                      const section = document.getElementById(sectionId);
+                      if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  }
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <button
+              className="join-btn"
               onClick={e => {
                 e.preventDefault();
-                if (item.hash === '#contact') {
-                  window.location.hash = '#contact';
-                  setActive(item.hash);
-                  setMenuOpen(false);
-                  setTimeout(() => {
-                    const section = document.getElementById('contact');
-                    if (section) {
-                      section.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }, 100);
-                } else {
-                  window.location.hash = item.hash;
-                  setActive(item.hash);
-                  setMenuOpen(false);
-                  setTimeout(() => {
-                    const sectionId = item.hash.replace('#', '');
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                      section.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }, 100);
-                }
+                window.location.hash = '#contact';
+                setMenuOpen(false);
+                setTimeout(() => {
+                  const section = document.getElementById('contact');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
               }}
             >
-              {item.label}
-            </a>
-          ))}
-          <button
-            className="join-btn"
-            onClick={e => {
-              e.preventDefault();
-              window.location.hash = '#contact';
-              setMenuOpen(false);
-              setTimeout(() => {
-                const section = document.getElementById('contact');
-                if (section) {
-                  section.scrollIntoView({ behavior: 'smooth' });
-                }
-              }, 100);
-            }}
-          >
-            JOIN NOW
-          </button>
+              JOIN NOW
+            </button>
+          </nav>
         </div>
-      </div>
+      </MobileMenuPortal>
     </header>
   );
 }

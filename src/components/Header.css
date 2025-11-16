@@ -118,82 +118,90 @@
   }
 }
 
-.menu-toggle {
+/* Floating hamburger (fixed to viewport to bypass iOS stacking issues) */
+.floating-menu-toggle{
+  position: fixed;
+  top: calc(10px + env(safe-area-inset-top));
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(30,30,30,0.95);
+  border: 1px solid #2b2b2b;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  z-index: 9999;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 100000;
+  -webkit-appearance: none;
+  appearance: none;
 }
-
-.menu-toggle .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
+.floating-menu-toggle .line{
+  width: 22px;
+  height: 2px;
   background: #f1c40f;
+  display: block;
   border-radius: 2px;
-  transition: all 0.3s ease;
-  margin: 3px 0;
+  transition: transform .3s ease, opacity .3s ease;
 }
+.floating-menu-toggle .line + .line{ margin-top: 4px; }
+.floating-menu-toggle.open .line:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.floating-menu-toggle.open .line:nth-child(2){ opacity: 0; }
+.floating-menu-toggle.open .line:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+@media (max-width:900px){ .floating-menu-toggle{ display:flex; } }
 
-.menu-toggle.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.open .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-@media (max-width:900px){
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-.mobile-nav-overlay {
+/* Portal-based overlay and drawer */
+.mobile-portal-overlay{
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 9998;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99999;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .4s ease;
+  transition: opacity .35s ease;
 }
-.mobile-nav-overlay.open {opacity:1; pointer-events:auto;}
-.mobile-nav {
+.mobile-portal-overlay.open{ opacity: 1; pointer-events: auto; }
+.mobile-drawer{
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(86vw, 420px);
   background: linear-gradient(135deg,#171717 0%, #222 100%);
-  color: #fff;
-  margin-top: 24px;
-  border-radius: 18px;
-  box-shadow: 0 12px 40px -8px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  padding: 28px 0 20px 0;
-  min-width: 82vw;
-  max-width: 420px;
+  border-left: 1px solid #2b2b2b;
+  box-shadow: -16px 0 40px rgba(0,0,0,.45);
+  padding: calc(env(safe-area-inset-top) + 16px) 0 20px 0;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  position: relative;
-  transform: translateY(-24px) scale(.92);
-  opacity: 0;
-  transition: transform .5s cubic-bezier(.22,.61,.36,1), opacity .4s ease;
+  transform: translateX(100%);
+  transition: transform .4s cubic-bezier(.22,.61,.36,1);
 }
-.mobile-nav-overlay.open .mobile-nav {transform:translateY(0) scale(1); opacity:1;}
+.mobile-portal-overlay.open .mobile-drawer{ transform: translateX(0); }
+.mobile-drawer a{
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.95em;
+  font-weight: 600;
+  padding: 14px 32px 14px 42px;
+  position: relative;
+  text-align: left;
+  letter-spacing: .5px;
+  transition: color .3s ease, background .3s ease;
+}
+.mobile-drawer a::before{
+  content: '';
+  position: absolute; left: 24px; top: 50%; width: 6px; height:6px;
+  background: #444; border-radius:50%; transform: translateY(-50%) scale(.7);
+  transition: background .3s, transform .4s;
+}
+.mobile-drawer a.active::before{ background:#f1c40f; transform:translateY(-50%) scale(1); }
+.mobile-drawer a.active{ color:#fff; background: rgba(255,255,255,.05); }
+.mobile-drawer a:hover{ color:#fff; }
+.drawer-close{
+  position: absolute; top: calc(env(safe-area-inset-top) + 8px); right: 14px;
+  background: transparent; color:#f1c40f; border:none; font-size: 2rem; width: 44px; height:44px;
+  cursor: pointer; border-radius: 10px; z-index: 1;
+}
 .mobile-nav a {
   color: #ddd;
   text-decoration: none;
