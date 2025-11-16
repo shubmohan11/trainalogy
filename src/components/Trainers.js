@@ -85,7 +85,10 @@ export default function Trainers() {
             <p>{t.exp} of experience</p>
             {expandedIndex === i && (
               <div className="trainer-profile">
-                <p className="trainer-specialties"><strong>Specialties:</strong> {t.specialties}</p>
+                <div className="trainer-specialties">
+                  <strong>Specialties:</strong>
+                  <span>{t.specialties}</span>
+                </div>
                 <p className="trainer-description">{t.description}</p>
               </div>
             )}
