@@ -58,6 +58,31 @@
   outline: none;
 }
 
+.phone-input-group {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.country-code {
+  background: #787878;
+  color: #000;
+  border: none;
+  border-radius: 0;
+  padding: 14px 12px;
+  font-size: 0.95em;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  min-width: 120px;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+.phone-input-group input[type="tel"] {
+  flex: 1;
+}
+
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: #333;
@@ -144,7 +169,6 @@
   margin-top: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: lowercase;
 }
 
 .form-submit:hover {
@@ -188,6 +212,17 @@
   .contact-form textarea {
     padding: 12px 14px;
     font-size: 0.95em;
+  }
+  
+  .country-code {
+    padding: 12px 8px;
+    font-size: 0.85em;
+    min-width: 110px;
+    max-width: 110px;
+  }
+  
+  .phone-input-group {
+    gap: 6px;
   }
   
   .form-captcha {

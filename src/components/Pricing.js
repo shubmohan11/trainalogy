@@ -49,7 +49,7 @@ export default function Pricing(){
       <div className="pricing-grid">
         {plans.map((p,i)=> {
           return (
-            <div className={"plan" + (i===0? ' active':'')} key={i}>
+            <div className="plan" key={i}>
               <div className="plan-header">
                 <div className="indicator">
                   {[0,1,2].map(n=> (
