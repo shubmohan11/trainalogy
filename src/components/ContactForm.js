@@ -43,7 +43,7 @@ export default function ContactForm() {
             </div>
           </div>
           
-          <button type="submit" className="form-submit">yfitnessdxb.com</button>
+          <button type="submit" className="form-submit">Submit</button>
         </form>
       </div>
     </section>
