@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import WhoWeAre from './components/WhoWeAre';
+import WhatMakes from './components/WhatMakes';
 import WhyChooseUs from './components/WhyChooseUs';
 import ExclusiveWorkouts from './components/ExclusiveWorkouts';
 import Features from './components/Features';
@@ -39,6 +40,7 @@ function App() {
         <main>
           <section id="home"><Hero /></section>
           <section id="get-to-know"><WhoWeAre /></section>
+         <WhatMakes />
           <section id="why-choose-us"><WhyChooseUs /></section>
           <section id="exclusive-workouts"><ExclusiveWorkouts /></section>
           <section id="features"><Features /></section>

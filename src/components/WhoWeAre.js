@@ -46,7 +46,7 @@ export default function WhoWeAre(){
         <div className="who-copy">
           <p className="who-subtitle">WHO WE ARE</p>
           <h2 className="who-title">GIVE SHAPE OF<br/>YOUR BODY</h2>
-          <p className="who-intro">At YFitness | personal Trainer We offer Different programs tailored for you.</p>
+          <p className="who-intro">At Trainology | personal Trainer We offer Different programs tailored for you.</p>
 
           <div className="who-list">
             {features.map((f,i)=> (

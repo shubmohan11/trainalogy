@@ -91,7 +91,7 @@ export default function Footer(){
           </div>
         </div>
       </div>
-      <div className="copyright">All Rights Reserved ©2025 at yfitnessdxb best personal trainer at Dubai</div>
+      <div className="copyright">All Rights Reserved ©2025 at Trainology best personal trainer at Dubai</div>
     </footer>
   );
 }

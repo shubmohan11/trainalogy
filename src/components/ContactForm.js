@@ -3,37 +3,48 @@ import './ContactForm.css';
 
 export default function ContactForm() {
   return (
-    <section className="contact-section">
+    <section className="contact-section" id="contact">
       <div className="contact-container">
-        <div className="contact-info">
-          <h2>GET IN TOUCH</h2>
-          <p>Ready to transform your body? Book a free consultation with a certified personal trainer in Dubai today. Let's start your fitness journey together!</p>
-          <div className="contact-details">
-            <p><strong>ADDRESS</strong><br/>Dubai,United Arab Emirates</p>
-            <p><strong>TELEPHONES</strong><br/>+971586946031</p>
-            <p><strong>SCHEDULE</strong><br/>Mon-Sat 09.00 - 21.00<br/>Sun 10.00 - 17.00</p>
+        <h2 className="contact-title">CONTACT FORM</h2>
+        <form className="contact-form">
+          <label htmlFor="firstName">first Name</label>
+          <input type="text" id="firstName" name="firstName" />
+          
+          <label htmlFor="lastName">last name</label>
+          <input type="text" id="lastName" name="lastName" />
+          
+          <label htmlFor="email">Email address</label>
+          <input type="email" id="email" name="email" />
+          
+          <label htmlFor="phone">phone</label>
+          <input type="tel" id="phone" name="phone" />
+          
+          <label htmlFor="location">Where are you based ?</label>
+          <input type="text" id="location" name="location" />
+          
+          <label htmlFor="trainingTimes">Your preferred training times</label>
+          <input type="text" id="trainingTimes" name="trainingTimes" />
+          
+          <label htmlFor="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+          
+          <div className="form-captcha">
+            <div className="captcha-checkbox">
+              <input type="checkbox" id="captcha" />
+              <label htmlFor="captcha">I'm not a robot</label>
+            </div>
+            <div className="recaptcha-badge">
+              <div className="recaptcha-logo">reCAPTCHA</div>
+              <div className="recaptcha-links">
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+                <span> - </span>
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="contact-form-box">
-          <h2>CONTACT FORM</h2>
-          <form className="contact-form">
-            <div className="form-row">
-              <input type="text" placeholder="first Name" />
-              <input type="text" placeholder="last name" />
-            </div>
-            <input type="email" placeholder="Email address" />
-            <textarea placeholder="phone" />
-            <input type="text" placeholder="Where are you based ?" />
-            <input type="text" placeholder="Your preferred training times" />
-            <textarea placeholder="Message" />
-            <div className="form-captcha">
-              <input type="checkbox" id="captcha" /> <label htmlFor="captcha">I'm not a robot</label>
-              {/* Simulated reCAPTCHA box */}
-              <div className="recaptcha-box">reCAPTCHA</div>
-            </div>
-            <button type="submit" className="form-submit">SUBMIT</button>
-          </form>
-        </div>
+          
+          <button type="submit" className="form-submit">yfitnessdxb.com</button>
+        </form>
       </div>
     </section>
   );
