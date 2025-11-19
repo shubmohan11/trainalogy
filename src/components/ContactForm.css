@@ -242,6 +242,11 @@
     font-size: 2.2em;
     margin-bottom: 30px;
   }
+  
+  .contact-form input[type="time"] {
+    padding: 10px 8px;
+    font-size: 0.88em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -272,23 +277,31 @@
   }
   
   .contact-form input[type="time"] {
-    padding: 12px 10px;
-    font-size: 0.9em;
+    padding: 10px 8px;
+    font-size: 0.85em;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
   
   .contact-form input[type="time"]::-webkit-calendar-picker-indicator {
-    width: 16px;
-    height: 16px;
-    margin-left: 4px;
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+    flex-shrink: 0;
+  }
+  
+  .contact-form input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
   
   .contact-form input[type="time"]::-webkit-datetime-edit-hour-field,
   .contact-form input[type="time"]::-webkit-datetime-edit-minute-field,
   .contact-form input[type="time"]::-webkit-datetime-edit-ampm-field {
-    padding: 3px 6px;
-    font-size: 0.9em;
+    padding: 2px 4px;
+    font-size: 0.85em;
   }
   
   .country-code {
