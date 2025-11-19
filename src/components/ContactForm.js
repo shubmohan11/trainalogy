@@ -1,12 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactForm.css';
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: 'loading', message: 'Sending…' });
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const values = Object.fromEntries(data.entries());
+
+    // Basic validation
+    if (!values.firstName || !values.lastName || !values.email) {
+      setStatus({ type: 'error', message: 'Please fill First name, Last name and Email.' });
+      return;
+    }
+
+    const fullPhone = `${values.countryCode || ''} ${values.phone || ''}`.trim();
+
+    const formatted = `New enquiry from Trainology\n\n` +
+      `Name: ${values.firstName} ${values.lastName}\n` +
+      `Email: ${values.email}\n` +
+      `Phone: ${fullPhone}\n` +
+      `Location: ${values.location || '-'}\n` +
+      `Preferred Times: ${values.trainingTimes || '-'}\n` +
+      `Message: ${values.message || '-'}\n`;
+
+    // EmailJS configuration via env (no secrets committed)
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    try {
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            to_email: 'shubmohan11@gmail.com',
+            from_name: `${values.firstName} ${values.lastName}`,
+            from_email: values.email,
+            phone: fullPhone,
+            location: values.location || '-',
+            preferred_times: values.trainingTimes || '-',
+            message: values.message || '-',
+            message_full: formatted,
+          },
+          { publicKey }
+        );
+        setStatus({ type: 'success', message: 'Thanks! Your enquiry has been sent.' });
+        form.reset();
+      } else {
+        // Fallback: opens mail client as a basic alternative when EmailJS is not configured
+        const subject = encodeURIComponent('New enquiry from Trainology');
+        const body = encodeURIComponent(formatted);
+        window.location.href = `mailto:shubmohan11@gmail.com?subject=${subject}&body=${body}`;
+        setStatus({ type: 'success', message: 'Opening your mail app to send the enquiry.' });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus({ type: 'error', message: 'Could not send right now. Please try again.' });
+    }
+  };
+
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
         <h2 className="contact-title">CONTACT FORM</h2>
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
           <input type="text" id="firstName" name="firstName" />
           
@@ -52,7 +116,12 @@ export default function ContactForm() {
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4"></textarea>
           
-          <button type="submit" className="form-submit">Submit</button>
+          <button type="submit" className="form-submit" disabled={status.type === 'loading'}>
+            {status.type === 'loading' ? 'Sending…' : 'Submit'}
+          </button>
+          {status.type !== 'idle' && status.message && (
+            <p className={`form-status ${status.type}`}>{status.message}</p>
+          )}
         </form>
       </div>
     </section>
