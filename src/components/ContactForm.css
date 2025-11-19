@@ -277,29 +277,28 @@
   }
   
   .contact-form input[type="time"] {
-    padding: 8px 6px;
-    font-size: 0.8em;
+    padding: 12px 10px;
+    font-size: 16px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-height: 44px;
   }
   
   .contact-form input[type="time"]::-webkit-calendar-picker-indicator {
-    width: 12px;
-    height: 12px;
-    margin-left: 0;
+    width: 18px;
+    height: 18px;
+    margin-left: 4px;
     padding: 0;
     flex-shrink: 0;
   }
   
   .contact-form input[type="time"]::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
-    display: flex;
-    align-items: center;
-    max-width: calc(100% - 16px);
+    margin: 0;
   }
   
   .contact-form input[type="time"]::-webkit-datetime-edit-text {
@@ -309,9 +308,9 @@
   .contact-form input[type="time"]::-webkit-datetime-edit-hour-field,
   .contact-form input[type="time"]::-webkit-datetime-edit-minute-field,
   .contact-form input[type="time"]::-webkit-datetime-edit-ampm-field {
-    padding: 1px 3px;
-    font-size: 0.8em;
-    background: transparent;
+    padding: 2px 4px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 2px;
   }
   
