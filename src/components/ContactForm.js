@@ -52,21 +52,6 @@ export default function ContactForm() {
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4"></textarea>
           
-          <div className="form-captcha">
-            <div className="captcha-checkbox">
-              <input type="checkbox" id="captcha" />
-              <label htmlFor="captcha">I'm not a robot</label>
-            </div>
-            <div className="recaptcha-badge">
-              <div className="recaptcha-logo">reCAPTCHA</div>
-              <div className="recaptcha-links">
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
-                <span> - </span>
-                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>
-              </div>
-            </div>
-          </div>
-          
           <button type="submit" className="form-submit">Submit</button>
         </form>
       </div>

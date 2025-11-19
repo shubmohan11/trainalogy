@@ -124,7 +124,7 @@
   top: calc(10px + env(safe-area-inset-top));
   right: 12px;
   width: 44px;
-  height: 44px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(30,30,30,0.95);
   border: 1px solid #2b2b2b;
@@ -133,9 +133,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 4px;
   z-index: 100000;
   -webkit-appearance: none;
   appearance: none;
+  padding: 0;
 }
 .floating-menu-toggle .line{
   width: 22px;
@@ -144,8 +146,8 @@
   display: block;
   border-radius: 2px;
   transition: transform .3s ease, opacity .3s ease;
+  margin: 0;
 }
-.floating-menu-toggle .line + .line{ margin-top: 4px; }
 .floating-menu-toggle.open .line:nth-child(1){ transform: translateY(6px) rotate(45deg); }
 .floating-menu-toggle.open .line:nth-child(2){ opacity: 0; }
 .floating-menu-toggle.open .line:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
