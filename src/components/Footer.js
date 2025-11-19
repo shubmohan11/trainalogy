@@ -34,7 +34,6 @@ export default function Footer(){
             <li><a href="#home">Home</a></li>
             <li><a href="#get-to-know">Get to Know Us</a></li>
             <li><a href="#trainers">Our Coaches</a></li>
-            <li><a href="#programs">Personal Training</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#blog">Blogs</a></li>
             <li><a href="#contact">Contact Us</a></li>

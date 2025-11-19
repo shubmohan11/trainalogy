@@ -6,7 +6,6 @@ const navItems = [
   { label: 'Home', hash: '#home' },
   { label: 'Get to know us', hash: '#get-to-know' },
   { label: 'Our Coaches', hash: '#trainers' },
-  { label: 'Personal Training', hash: '#programs' },
   { label: 'BMI Calculator', hash: '#bmi-calculator' },
   { label: 'Pricing', hash: '#pricing' },
   { label: 'Blogs', hash: '#blog' },

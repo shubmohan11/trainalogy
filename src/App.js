@@ -7,7 +7,6 @@ import WhatMakes from './components/WhatMakes';
 import WhyChooseUs from './components/WhyChooseUs';
 import ExclusiveWorkouts from './components/ExclusiveWorkouts';
 import Features from './components/Features';
-import Programs from './components/Programs';
 import Trainers from './components/Trainers';
 import Pricing from './components/Pricing';
 import Gallery from './components/Gallery';
@@ -45,7 +44,6 @@ function App() {
           <section id="why-choose-us"><WhyChooseUs /></section>
           <section id="exclusive-workouts"><ExclusiveWorkouts /></section>
           <section id="features"><Features /></section>
-          <section id="programs"><Programs /></section>
           <section id="trainers"><Trainers /></section>
           <section id="bmi-calculator"><BMICalculator /></section>
           <section id="pricing"><Pricing /></section>
