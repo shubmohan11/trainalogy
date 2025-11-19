@@ -72,13 +72,13 @@ export default function ContactForm() {
         <h2 className="contact-title">CONTACT FORM</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" />
+          <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" />
           
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" />
+          <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" />
           
           <label htmlFor="email">Email Address</label>
-          <input type="email" id="email" name="email" />
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" />
           
           <label htmlFor="phone">Phone</label>
           <div className="phone-input-group">
@@ -108,13 +108,13 @@ export default function ContactForm() {
           </div>
           
           <label htmlFor="location">Where are you based ?</label>
-          <input type="text" id="location" name="location" />
+          <input type="text" id="location" name="location" placeholder="City, Country" />
           
           <label htmlFor="trainingTimes">Your preferred training times</label>
-          <input type="text" id="trainingTimes" name="trainingTimes" />
+          <input type="time" id="trainingTimes" name="trainingTimes" />
           
           <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" rows="4"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your fitness goals..."></textarea>
           
           <button type="submit" className="form-submit" disabled={status.type === 'loading'}>
             {status.type === 'loading' ? 'Sending…' : 'Submit'}
