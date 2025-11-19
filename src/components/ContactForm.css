@@ -58,49 +58,6 @@
   outline: none;
 }
 
-.contact-form input[type="time"] {
-  cursor: pointer;
-  background: #787878;
-  color: #000;
-  border: none;
-  border-radius: 0;
-  padding: 14px 16px;
-  font-size: 1em;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.contact-form input[type="time"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: brightness(0) saturate(100%) invert(81%) sepia(58%) saturate(434%) hue-rotate(6deg) brightness(96%) contrast(92%);
-  width: 20px;
-  height: 20px;
-  transition: transform 0.2s ease;
-}
-
-.contact-form input[type="time"]::-webkit-calendar-picker-indicator:hover {
-  transform: scale(1.15);
-}
-
-.contact-form input[type="time"]::-webkit-datetime-edit-fields-wrapper {
-  padding: 0;
-}
-
-.contact-form input[type="time"]::-webkit-datetime-edit-text {
-  padding: 0 4px;
-  color: #000;
-}
-
-.contact-form input[type="time"]::-webkit-datetime-edit-hour-field,
-.contact-form input[type="time"]::-webkit-datetime-edit-minute-field,
-.contact-form input[type="time"]::-webkit-datetime-edit-ampm-field {
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  padding: 4px 8px;
-  color: #000;
-  font-weight: 600;
-}
-
 .phone-input-group {
   display: flex;
   gap: 8px;
@@ -242,11 +199,6 @@
     font-size: 2.2em;
     margin-bottom: 30px;
   }
-  
-  .contact-form input[type="time"] {
-    padding: 10px 8px;
-    font-size: 0.88em;
-  }
 }
 
 @media (max-width: 600px) {
@@ -274,44 +226,6 @@
   .contact-form textarea {
     padding: 12px 14px;
     font-size: 0.95em;
-  }
-  
-  .contact-form input[type="time"] {
-    padding: 12px 10px;
-    font-size: 16px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    min-height: 44px;
-  }
-  
-  .contact-form input[type="time"]::-webkit-calendar-picker-indicator {
-    width: 18px;
-    height: 18px;
-    margin-left: 4px;
-    padding: 0;
-    flex-shrink: 0;
-  }
-  
-  .contact-form input[type="time"]::-webkit-datetime-edit-fields-wrapper {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .contact-form input[type="time"]::-webkit-datetime-edit-text {
-    padding: 0 2px;
-  }
-  
-  .contact-form input[type="time"]::-webkit-datetime-edit-hour-field,
-  .contact-form input[type="time"]::-webkit-datetime-edit-minute-field,
-  .contact-form input[type="time"]::-webkit-datetime-edit-ampm-field {
-    padding: 2px 4px;
-    font-size: 16px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
   }
   
   .country-code {
