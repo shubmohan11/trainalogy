@@ -38,7 +38,14 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand" href="/">
+        <a
+          className="brand"
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            window.location.href = process.env.PUBLIC_URL || '/';
+          }}
+        >
           <img
             src={process.env.PUBLIC_URL + '/WhatsApp_Image_2025-11-09_at_10.11.55_PM-removebg-preview.png'}
             alt="Trainalogy logo"
