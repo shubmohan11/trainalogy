@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './BMICalculator.css';
 
 export default function BMICalculator() {
@@ -7,45 +7,62 @@ export default function BMICalculator() {
   const [bmi, setBmi] = useState(null);
   const [category, setCategory] = useState('');
   const [unit, setUnit] = useState('metric'); // metric or imperial
+  const [error, setError] = useState('');
 
-  const calculateBMI = (e) => {
-    e.preventDefault();
-    
-    if (!weight || !height) {
-      alert('Please enter both weight and height');
+  const computeAndSetBMI = (w, h, u) => {
+    let wNum = parseFloat(w);
+    let hNum = parseFloat(h);
+    if (isNaN(wNum) || isNaN(hNum) || wNum <= 0 || hNum <= 0) {
+      setBmi(null);
+      setCategory('');
       return;
     }
-
     let bmiValue;
-    
-    if (unit === 'metric') {
-      // BMI = weight (kg) / (height (m))^2
-      const heightInMeters = height / 100;
-      bmiValue = weight / (heightInMeters * heightInMeters);
+    if (u === 'metric') {
+      const heightInMeters = hNum / 100;
+      bmiValue = wNum / (heightInMeters * heightInMeters);
     } else {
-      // BMI = (weight (lbs) / (height (inches))^2) * 703
-      bmiValue = (weight / (height * height)) * 703;
+      bmiValue = (wNum / (hNum * hNum)) * 703;
     }
-
     setBmi(bmiValue.toFixed(1));
-    
-    // Determine category
     if (bmiValue < 18.5) {
       setCategory('Underweight');
-    } else if (bmiValue >= 18.5 && bmiValue < 25) {
+    } else if (bmiValue < 25) {
       setCategory('Normal weight');
-    } else if (bmiValue >= 25 && bmiValue < 30) {
+    } else if (bmiValue < 30) {
       setCategory('Overweight');
     } else {
       setCategory('Obese');
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!weight || !height) {
+      setError('Please enter both weight and height.');
+      return;
+    }
+    setError('');
+    computeAndSetBMI(weight, height, unit);
+  };
+
+  // Live auto-calculation when inputs valid (debounced minimal)
+  useEffect(() => {
+    if (weight && height) {
+      setError('');
+      computeAndSetBMI(weight, height, unit);
+    } else {
+      setBmi(null);
+      setCategory('');
+    }
+  }, [weight, height, unit]);
+
   const resetCalculator = () => {
     setWeight('');
     setHeight('');
     setBmi(null);
     setCategory('');
+    setError('');
   };
 
   const getCategoryColor = () => {
@@ -81,7 +98,7 @@ export default function BMICalculator() {
               </button>
             </div>
 
-            <form onSubmit={calculateBMI}>
+            <form onSubmit={handleSubmit} noValidate>
               <div className="input-group">
                 <label htmlFor="weight">
                   Weight {unit === 'metric' ? '(kg)' : '(lbs)'}
@@ -94,6 +111,7 @@ export default function BMICalculator() {
                   placeholder={unit === 'metric' ? 'e.g., 70' : 'e.g., 154'}
                   step="0.1"
                   min="0"
+                  aria-describedby={error ? 'bmi-error' : undefined}
                 />
               </div>
 
@@ -109,6 +127,7 @@ export default function BMICalculator() {
                   placeholder={unit === 'metric' ? 'e.g., 175' : 'e.g., 69'}
                   step="0.1"
                   min="0"
+                  aria-describedby={error ? 'bmi-error' : undefined}
                 />
               </div>
 
@@ -120,10 +139,13 @@ export default function BMICalculator() {
                   Reset
                 </button>
               </div>
+              {error && (
+                <p id="bmi-error" className="field-error" role="alert">{error}</p>
+              )}
             </form>
 
             {bmi && (
-              <div className="bmi-result" style={{ borderColor: getCategoryColor() }}>
+              <div className="bmi-result" style={{ borderColor: getCategoryColor() }} aria-live="polite">
                 <h3>Your BMI Result</h3>
                 <div className="bmi-value" style={{ color: getCategoryColor() }}>
                   {bmi}

@@ -17,7 +17,7 @@
   justify-content: space-between;
   padding: 16px 32px;
   height: 70px;
-  max-width: 1400px;
+  max-width: 1200px; /* standardized layout width */
   margin: 0 auto;
   position: relative;
   background: rgba(30, 30, 30, 0.95);
@@ -57,6 +57,11 @@
   text-transform: uppercase;
   transition: color 0.3s ease;
   position: relative;
+}
+.main-nav a:focus-visible{
+  outline: 2px solid var(--accent,#f1c40f);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 .main-nav a:hover, .main-nav a:focus{
   color: var(--accent, #f1c40f);
@@ -103,6 +108,10 @@
   color: #000;
   transform: scale(1.05);
 }
+.join-btn:focus-visible{
+  outline: 2px solid var(--accent,#f1c40f);
+  outline-offset: 3px;
+}
 
 @media (max-width:900px){
   .main-nav{display:none}
@@ -124,7 +133,7 @@
   top: calc(10px + env(safe-area-inset-top));
   right: 12px;
   width: 44px;
-  height: 30px;
+  height: 44px; /* accessible touch target */
   border-radius: 50%;
   background: rgba(30,30,30,0.95);
   border: 1px solid #2b2b2b;
@@ -138,6 +147,10 @@
   -webkit-appearance: none;
   appearance: none;
   padding: 0;
+}
+.floating-menu-toggle:focus-visible{
+  outline: 2px solid var(--accent,#f1c40f);
+  outline-offset: 3px;
 }
 .floating-menu-toggle .line{
   width: 22px;

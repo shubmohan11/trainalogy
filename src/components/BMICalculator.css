@@ -121,6 +121,12 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
 }
+.calculate-btn:focus-visible,
+.reset-btn:focus-visible,
+.unit-toggle button:focus-visible {
+  outline: 2px solid #f1c40f;
+  outline-offset: 3px;
+}
 
 .calculate-btn {
   background: #f1c40f;
@@ -245,6 +251,16 @@
 
 .bmi-note strong {
   color: #f1c40f;
+}
+
+.field-error {
+  margin-top: 14px;
+  background: #220000;
+  border-left: 4px solid #e74c3c;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ffb3b3;
 }
 
 /* Responsive Design */

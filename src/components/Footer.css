@@ -10,7 +10,7 @@
 	grid-template-columns: 2fr 1fr 1fr 1.2fr;
 	gap: 40px;
 	align-items: flex-start;
-	max-width: 1600px;
+	max-width: 1200px; /* standardized with header & container */
 	margin: 0 auto;
 	padding: 0 32px 32px 32px;
 	border-bottom: 1px solid #2b2b2b;
@@ -76,6 +76,11 @@
 	font-size: 1.1em;
 	transition: color 0.2s;
 }
+.footer-links ul li a:focus-visible {
+	outline: 2px solid #f1c40f;
+	outline-offset: 3px;
+	border-radius: 4px;
+}
 .footer-links ul li a:hover {
 	color: #f1c40f;
 }
@@ -130,6 +135,7 @@
 	cursor: pointer;
 	align-self: flex-start;
 }
+.footer-submit:focus-visible {outline:2px solid #f1c40f; outline-offset:3px;}
 .footer-social {
 	display: flex;
 	gap: 18px;
@@ -148,6 +154,7 @@
 .footer-social a:hover {
 	color: #fff;
 }
+.footer-social a:focus-visible {outline:2px solid #f1c40f; outline-offset:3px; border-radius:4px;}
 .footer-social svg {
 	width: 20px;
 	height: 20px;
