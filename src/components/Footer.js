@@ -16,13 +16,13 @@ export default function Footer(){
               <span className="contact-icon">📍</span> 
               <span>Dubai, United Arab Emirates</span>
             </a>
-            <a href="mailto:info@trainology.com" className="contact-item">
+            <a href="mailto:trainology.dxb@gmail.com" className="contact-item">
               <span className="contact-icon">✉️</span> 
-              <span>trainology.com</span>
+              <span>trainology.dxb@gmail.com</span>
             </a>
-            <a href="tel:+971589646031" className="contact-item">
+            <a href="tel:+971507314376" className="contact-item">
               <span className="contact-icon">📞</span> 
-              <span>+971 589 646 031</span>
+              <span>+971 50 731 4376</span>
             </a>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '917887800019'; // WhatsApp format: country code + number (91 for India)
+  const phoneNumber = '971507314376'; // WhatsApp format: country code + number (971 for UAE)
   const message = 'Hello! I would like to know more about your fitness programs.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
