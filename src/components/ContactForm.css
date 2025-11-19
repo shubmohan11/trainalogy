@@ -58,6 +58,11 @@
   outline: none;
 }
 
+/* Time input base tweaks */
+.contact-form input[type="time"] {
+  cursor: pointer;
+}
+
 .phone-input-group {
   display: flex;
   gap: 8px;
@@ -226,6 +231,22 @@
   .contact-form textarea {
     padding: 12px 14px;
     font-size: 0.95em;
+  }
+  
+  /* iOS-safe time input sizing to avoid overflow/zoom */
+  .contact-form input[type="time"] {
+    font-size: 16px; /* prevent iOS zoom */
+    min-height: 44px; /* Apple HIG tap target */
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .contact-form input[type="time"]::-webkit-calendar-picker-indicator {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
   }
   
   .country-code {

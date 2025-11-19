@@ -111,7 +111,7 @@ export default function ContactForm() {
           <input type="text" id="location" name="location" placeholder="City, Country" />
           
           <label htmlFor="trainingTimes">Your preferred training times</label>
-          <input type="text" id="trainingTimes" name="trainingTimes" placeholder="e.g., Morning 6-8 AM, Evening 6-8 PM" />
+          <input type="time" id="trainingTimes" name="trainingTimes" />
           
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="Tell us about your fitness goals..."></textarea>
