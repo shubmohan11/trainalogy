@@ -46,9 +46,9 @@ export default function WhyChooseUs() {
     return count;
   }
 
-  const trainingPrograms = useCounterAnimation(10);
-  const expertTrainer = useCounterAnimation(10);
-  const happyClients = useCounterAnimation(650, 1800);
+  const trainingPrograms = useCounterAnimation(4);
+  const expertTrainer = useCounterAnimation(5);
+  const happyClients = useCounterAnimation(50, 100);
 
   return (
     <section className="why container" id="why-choose-us">
@@ -61,8 +61,16 @@ export default function WhyChooseUs() {
 
         <div className="why-copy">
           <p className="why-subtitle">WHY CHOOSE US</p>
-          <h2 className="why-title">WE ALWAYS PROVIDE<br/>BEST FITNESS SERVICE FOR 25 YEARS</h2>
-          <p className="why-intro">This also meant we needed to provide a learning environment run by experienced and successful coaches. However, our most important goal was to create a welcoming atmosphere and community in which everyone feels a sense of belonging.</p>
+          <h2 className="why-title">Experience the Art of Elite Fitness</h2>
+          <p className="why-intro">
+            With 5 years of distinguished excellence, Trainology offers a level of personal training crafted for those who expect nothing but the best. Our certified experts combine precision, performance, and personalization to deliver a transformation experience that feels exclusive at every step.
+          </p>
+          <p className="why-intro">
+            We curate a refined, motivating, and private training atmosphere—where your goals are treated with the highest attention, and your journey is guided with unmatched professionalism.
+          </p>
+          <p className="why-intro">
+            <strong>At Trainology, fitness isn't just a service.<br/>It's a luxury experience designed around you.</strong>
+          </p>
         </div>
       </div>
 
