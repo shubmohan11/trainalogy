@@ -29,13 +29,13 @@ export default function ContactForm() {
       `Preferred Times: ${values.trainingTimes || '-'}\n` +
       `Message: ${values.message || '-'}\n`;
 
-    // EmailJS configuration via env (no secrets committed)
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+  // EmailJS configuration
+  const serviceId = 'service_yn6omeo';
+  const templateId = 'template_3vtalm9';
+  const publicKey = 'u_ExPlJxAw8Sn16TY';
 
     try {
-      if (serviceId && templateId && publicKey) {
+      if (serviceId !== 'YOUR_SERVICE_ID' && templateId !== 'YOUR_TEMPLATE_ID') {
         await emailjs.send(
           serviceId,
           templateId,

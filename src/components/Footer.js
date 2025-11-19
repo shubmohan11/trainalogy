@@ -60,10 +60,6 @@ export default function Footer(){
           <p>Sign up for our mailing list to get latest updates and offers</p>
           <form onSubmit={(e) => e.preventDefault()}>
             <input type="email" placeholder="Your Email" required />
-            <div className="footer-captcha">
-              <input type="checkbox" id="captcha" required /> 
-              <label htmlFor="captcha">I'm not a robot</label>
-            </div>
             <button className="footer-submit" type="submit">
               <span>Subscribe</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
