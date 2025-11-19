@@ -7,7 +7,7 @@
 
 .footer-inner {
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr 1.2fr;
+	grid-template-columns: 2fr 1fr 1fr; /* brand | links | schedule */
 	gap: 40px;
 	align-items: flex-start;
 	max-width: 1200px; /* standardized with header & container */
@@ -19,37 +19,25 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 8px;
+	gap: 4px; /* tighter spacing between logo and text */
 	padding-right: 24px;
-	border-right: 1px solid #2b2b2b;
+	border-right: 1px solid rgba(241, 196, 15, 0.35);
 }
 .footer-logo {
 	width: 120px;
-	margin-bottom: 4px;
+	margin-bottom: 0; /* remove extra space under logo */
+	display: block;
 }
 .footer-desc {
 	color: #eee;
 	font-size: 1em;
-	margin-bottom: 8px;
+	margin: 4px 0 8px 0; /* add small top margin only */
 }
-.footer-contact {
-	color: #f1c40f;
-	font-size: 1em;
-	margin-bottom: 8px;
-	line-height: 1.8;
-}
-.footer-contact a {
-	color: #f1c40f;
-	text-decoration: none;
-	transition: color 0.3s ease;
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-}
-.footer-contact a:hover {
-	color: #fff;
-	text-decoration: underline;
-}
+.footer-contact{width:100%;margin-top:4px}
+.footer-contact .contact-row{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:baseline;margin:10px 0}
+.footer-contact .label{color:#f1c40f;text-transform:lowercase;font-weight:700;letter-spacing:0.5px}
+.footer-contact .value{color:#eee;text-decoration:none}
+.footer-contact .value:hover{color:#f1c40f}
 .footer-links h5,
 .footer-schedule h5,
 .footer-newsletter h5 {
@@ -62,6 +50,7 @@
 	border-bottom: 2px solid #f1c40f;
 	display: inline-block;
 }
+.footer-newsletter { grid-column: 1 / -1; margin-top: 8px; }
 .footer-links ul {
 	list-style: none;
 	padding: 0;
@@ -90,30 +79,22 @@
 	margin: 0;
 }
 .footer-schedule ul li {
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 	color: #eee;
 	font-size: 1em;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
 }
+.footer-schedule .day { color: #f1c40f; font-weight: 700; }
+.footer-schedule .time { color: #ddd; }
 .footer-newsletter p {
 	color: #eee;
 	font-size: 1em;
 	margin-bottom: 10px;
 }
-.footer-newsletter form {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin-bottom: 12px;
-}
-.footer-newsletter input[type="email"] {
-	padding: 10px;
-	border-radius: 4px;
-	border: 1px solid #f1c40f;
-	background: #222;
-	color: #fff;
-	font-size: 1em;
-	margin-bottom: 4px;
-}
+.newsletter-form {display:flex;gap:10px;margin:12px 0}
+.newsletter-form input[type="email"]{padding:10px;border-radius:8px;border:1px solid #f1c40f;background:#222;color:#fff;font-size:1em;flex:1 1 auto}
 .footer-captcha {
 	background: #222;
 	padding: 8px;
@@ -142,24 +123,9 @@
 	margin-top: 10px;
 	flex-wrap: wrap;
 }
-.footer-social a {
-	color: #f1c40f;
-	font-size: 1em;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	transition: color 0.3s ease;
-}
-.footer-social a:hover {
-	color: #fff;
-}
-.footer-social a:focus-visible {outline:2px solid #f1c40f; outline-offset:3px; border-radius:4px;}
-.footer-social svg {
-	width: 20px;
-	height: 20px;
-	fill: currentColor;
-}
+.footer-social a.social-chip{width:36px;height:36px;border:1px solid #f1c40f;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#f1c40f;background:#151515;transition:all .25s ease}
+.footer-social a.social-chip:hover{background:#f1c40f;color:#000}
+.footer-social a.social-chip svg{width:18px;height:18px;fill:currentColor}
 .copyright {
 	margin-top: 0;
 	padding-top: 24px;
@@ -204,21 +170,9 @@
 	}
 	.footer-links,
 	.footer-schedule,
-	.footer-newsletter {
-		text-align: center;
-		align-items: center;
-		margin-bottom: 18px;
-	}
-	.footer-links h5,
-	.footer-schedule h5,
-	.footer-newsletter h5 {
-		font-size: 1.1em;
-		margin-bottom: 12px;
-	}
-	.footer-links ul li,
-	.footer-schedule ul li {
-		font-size: 1em;
-	}
+	.footer-newsletter p { margin-bottom: 12px; }
+	.footer-newsletter .newsletter-form { display:flex; gap:12px; align-items:center; }
+	.footer-newsletter .newsletter-form input[type="email"] { padding: 12px 14px; border-radius: 10px; border: 1px solid #f1c40f; background:#111; color:#fff; font-size:1em; flex:1 1 auto; }
 	.footer-newsletter input[type="email"] {
 		font-size: 0.95em;
 		padding: 8px;
