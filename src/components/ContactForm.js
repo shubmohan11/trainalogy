@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [status, setStatus] = useState({ type: 'idle', message: '' });
+  const [timeValue, setTimeValue] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -112,7 +113,17 @@ export default function ContactForm() {
           
           <label htmlFor="trainingTimes">Your preferred training times</label>
           <small className="input-hint">🕒 Tap the field to select a time</small>
-          <input type="time" id="trainingTimes" name="trainingTimes" />
+          <div className="time-input-wrapper">
+            <input 
+              type="time" 
+              id="trainingTimes" 
+              name="trainingTimes"
+              value={timeValue}
+              onChange={(e) => setTimeValue(e.target.value)}
+              className={timeValue ? 'has-value' : ''}
+            />
+            {!timeValue && <span className="time-placeholder">Tap to select</span>}
+          </div>
           
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="Tell us about your fitness goals..."></textarea>
