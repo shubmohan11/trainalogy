@@ -6,6 +6,7 @@ const navItems = [
   { label: 'Home', hash: '#home' },
   { label: 'Get to know us', hash: '#get-to-know' },
   { label: 'Our Coaches', hash: '#trainers' },
+  { label: 'Training Program', hash: '#exclusive-workouts' },
   { label: 'BMI Calculator', hash: '#bmi-calculator' },
   { label: 'Pricing', hash: '#pricing' },
   { label: 'Blogs', hash: '#blog' },
@@ -88,23 +89,6 @@ export default function Header() {
             </a>
           ))}
         </nav>
-
-        <a
-          className="join-btn desktop-join"
-          href="#contact"
-          onClick={e => {
-            e.preventDefault();
-            window.location.hash = '#contact';
-            setTimeout(() => {
-              const section = document.getElementById('contact');
-              if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-              }
-            }, 100);
-          }}
-        >
-          JOIN NOW
-        </a>
 
         {/* Floating hamburger for mobile/tablet (fixed, outside stacking contexts) */}
         <button
