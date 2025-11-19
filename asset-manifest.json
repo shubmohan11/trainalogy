@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/trainalogy/static/css/main.41603143.css",
-    "main.js": "/trainalogy/static/js/main.b4c3f9fa.js",
+    "main.css": "/trainalogy/static/css/main.6a3edc45.css",
+    "main.js": "/trainalogy/static/js/main.e4f48965.js",
     "static/js/453.01de3ecf.chunk.js": "/trainalogy/static/js/453.01de3ecf.chunk.js",
     "index.html": "/trainalogy/index.html",
-    "main.41603143.css.map": "/trainalogy/static/css/main.41603143.css.map",
-    "main.b4c3f9fa.js.map": "/trainalogy/static/js/main.b4c3f9fa.js.map",
+    "main.6a3edc45.css.map": "/trainalogy/static/css/main.6a3edc45.css.map",
+    "main.e4f48965.js.map": "/trainalogy/static/js/main.e4f48965.js.map",
     "453.01de3ecf.chunk.js.map": "/trainalogy/static/js/453.01de3ecf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.41603143.css",
-    "static/js/main.b4c3f9fa.js"
+    "static/css/main.6a3edc45.css",
+    "static/js/main.e4f48965.js"
   ]
 }
