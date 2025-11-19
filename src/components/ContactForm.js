@@ -13,7 +13,7 @@ export default function ContactForm() {
           <label htmlFor="lastName">Last Name</label>
           <input type="text" id="lastName" name="lastName" />
           
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Email Address</label>
           <input type="email" id="email" name="email" />
           
           <label htmlFor="phone">Phone</label>

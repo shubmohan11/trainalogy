@@ -14,6 +14,7 @@ import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
 import WhatsAppButton from './components/WhatsAppButton';
+import BMICalculator from './components/BMICalculator';
 
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -46,6 +47,7 @@ function App() {
           <section id="features"><Features /></section>
           <section id="programs"><Programs /></section>
           <section id="trainers"><Trainers /></section>
+          <section id="bmi-calculator"><BMICalculator /></section>
           <section id="pricing"><Pricing /></section>
           <section id="gallery"><Gallery /></section>
           <section id="contact"><ContactForm /></section>
