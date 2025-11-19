@@ -29,10 +29,10 @@ export default function ContactForm() {
       `Preferred Times: ${values.trainingTimes || '-'}\n` +
       `Message: ${values.message || '-'}\n`;
 
-  // EmailJS configuration
-  const serviceId = 'service_yn6omeo';
-  const templateId = 'template_3vtalm9';
-  const publicKey = 'u_ExPlJxAw8Sn16TY';
+  // EmailJS configuration (updated)
+  const serviceId = 'service_2jev9yi';
+  const templateId = 'template_wre1usw';
+  const publicKey = 'CCcK_Zfr-mkpre_wl';
 
     try {
       if (serviceId !== 'YOUR_SERVICE_ID' && templateId !== 'YOUR_TEMPLATE_ID') {
@@ -40,7 +40,7 @@ export default function ContactForm() {
           serviceId,
           templateId,
           {
-            to_email: 'shubmohan11@gmail.com',
+            to_email: 'trainology.dxb@gmail.com',
             from_name: `${values.firstName} ${values.lastName}`,
             from_email: values.email,
             phone: fullPhone,
@@ -57,7 +57,7 @@ export default function ContactForm() {
         // Fallback: opens mail client as a basic alternative when EmailJS is not configured
         const subject = encodeURIComponent('New enquiry from Trainology');
         const body = encodeURIComponent(formatted);
-        window.location.href = `mailto:shubmohan11@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:trainology.dxb@gmail.com?subject=${subject}&body=${body}`;
         setStatus({ type: 'success', message: 'Opening your mail app to send the enquiry.' });
       }
     } catch (err) {
