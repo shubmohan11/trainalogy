@@ -63,6 +63,14 @@
   cursor: pointer;
 }
 
+.input-hint {
+  display: block;
+  color: #999;
+  font-size: 0.85em;
+  margin: -4px 0 6px 0;
+  font-style: italic;
+}
+
 .phone-input-group {
   display: flex;
   gap: 8px;

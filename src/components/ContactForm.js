@@ -111,6 +111,7 @@ export default function ContactForm() {
           <input type="text" id="location" name="location" placeholder="City, Country" />
           
           <label htmlFor="trainingTimes">Your preferred training times</label>
+          <small className="input-hint">🕒 Tap the field to select a time</small>
           <input type="time" id="trainingTimes" name="trainingTimes" />
           
           <label htmlFor="message">Message</label>
