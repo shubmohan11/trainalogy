@@ -113,17 +113,14 @@ export default function ContactForm() {
           
           <label htmlFor="trainingTimes">Your preferred training times</label>
           <small className="input-hint">🕒 Tap the field to select a time</small>
-          <div className="time-input-wrapper">
-            <input 
-              type="time" 
-              id="trainingTimes" 
-              name="trainingTimes"
-              value={timeValue}
-              onChange={(e) => setTimeValue(e.target.value)}
-              className={timeValue ? 'has-value' : ''}
-            />
-            {!timeValue && <span className="time-placeholder">Tap to select</span>}
-          </div>
+          <input 
+            type="time" 
+            id="trainingTimes" 
+            name="trainingTimes"
+            value={timeValue}
+            onChange={(e) => setTimeValue(e.target.value)}
+            className={timeValue ? 'has-value' : ''}
+          />
           
           <label htmlFor="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="Tell us about your fitness goals..."></textarea>

@@ -64,48 +64,31 @@
   position: relative;
 }
 
-/* Wrapper for time input to add placeholder */
-.time-input-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.time-placeholder {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #333;
-  pointer-events: none;
-  font-size: 1em;
-  z-index: 1;
-}
-
-.time-input-wrapper input[type="time"]:focus ~ .time-placeholder,
-.time-input-wrapper input[type="time"]:valid ~ .time-placeholder {
-  opacity: 0;
-}
-
-/* Add placeholder-like text for empty time input */
-.contact-form input[type="time"]::-webkit-datetime-edit-text {
-  color: #333;
-}
-
-.contact-form input[type="time"]::-webkit-datetime-edit-hour-field:not([value]),
-.contact-form input[type="time"]::-webkit-datetime-edit-minute-field:not([value]),
-.contact-form input[type="time"]::-webkit-datetime-edit-ampm-field:not([value]) {
-  color: #333;
-}
-
-/* Show "Select time" text when empty on mobile */
+/* Mobile only: Add clock symbol inside empty time input */
 @media (max-width: 600px) {
-  .contact-form input[type="time"]:invalid:not(:focus) {
-    color: #333;
+  .contact-form input[type="time"]:not(.has-value)::-webkit-datetime-edit {
+    color: transparent;
   }
   
-  .contact-form input[type="time"]:invalid:not(:focus)::before {
-    content: "Select time";
+  .contact-form input[type="time"]:not(.has-value)::before {
+    content: "🕒 Select time";
     color: #333;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .contact-form input[type="time"].has-value::before {
+    display: none;
+  }
+  
+  .contact-form input[type="time"]:focus::-webkit-datetime-edit {
+    color: #000;
+  }
+  
+  .contact-form input[type="time"]:focus::before {
+    display: none;
   }
 }
 
@@ -301,11 +284,6 @@
     height: 18px;
     margin: 0;
     padding: 0;
-  }
-  
-  .time-placeholder {
-    font-size: 0.95em;
-    left: 14px;
   }
   
   .country-code {
