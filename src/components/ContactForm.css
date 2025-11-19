@@ -271,6 +271,26 @@
     font-size: 0.95em;
   }
   
+  .contact-form input[type="time"] {
+    padding: 12px 10px;
+    font-size: 0.9em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .contact-form input[type="time"]::-webkit-calendar-picker-indicator {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+  }
+  
+  .contact-form input[type="time"]::-webkit-datetime-edit-hour-field,
+  .contact-form input[type="time"]::-webkit-datetime-edit-minute-field,
+  .contact-form input[type="time"]::-webkit-datetime-edit-ampm-field {
+    padding: 3px 6px;
+    font-size: 0.9em;
+  }
+  
   .country-code {
     padding: 12px 8px;
     font-size: 0.85em;
