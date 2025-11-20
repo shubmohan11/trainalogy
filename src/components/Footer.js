@@ -13,15 +13,15 @@ export default function Footer(){
           </p>
           <div className="footer-contact">
             <div className="contact-row">
-              <span className="label">place</span>
+              <span className="label">Place</span>
               <a className="value" href="https://www.google.com/maps/place/Dubai" target="_blank" rel="noopener noreferrer">Dubai, United Arab Emirates</a>
             </div>
             <div className="contact-row">
-              <span className="label">email</span>
+              <span className="label">Email</span>
               <a className="value" href="mailto:trainology.dxb@gmail.com">trainology.dxb@gmail.com</a>
             </div>
             <div className="contact-row">
-              <span className="label">phone</span>
+              <span className="label">Phone</span>
               <a className="value" href="tel:+971507314376">+971 50 731 4376</a>
             </div>
           </div>
