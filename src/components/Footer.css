@@ -35,7 +35,7 @@
 }
 .footer-contact{width:100%;margin-top:4px}
 .footer-contact .contact-row{display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:baseline;margin:10px 0}
-.footer-contact .label{color:#f1c40f;text-transform:lowercase;font-weight:700;letter-spacing:0.5px}
+.footer-contact .label{color:#f1c40f;text-transform:capitalize;font-weight:700;letter-spacing:0.5px}
 .footer-contact .value{color:#eee;text-decoration:none}
 .footer-contact .value:hover{color:#f1c40f}
 .footer-links h5,
